@@ -1,0 +1,22 @@
+<!-- callback.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OAuth Callback</title>
+</head>
+<body>
+  <script>
+    // Extract access_token from URL hash
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    
+    if (code) {
+      localStorage.setItem("oauth_code", code);
+      window.location.href = "index.html"; // redirect back to main
+    } else {
+      document.body.innerHTML = "No OAuth code found.";
+    }
+  </script>
+</body>
+</html>
+ 
